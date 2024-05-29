@@ -12,8 +12,6 @@ import me.F_o_F_1092.WeatherVote.PluginManager.CommandListener;
 import me.F_o_F_1092.WeatherVote.PluginManager.JSONMessage;
 import me.F_o_F_1092.WeatherVote.PluginManager.Math;
 import me.F_o_F_1092.WeatherVote.PluginManager.ServerLog;
-import me.F_o_F_1092.WeatherVote.PluginManager.VersionManager;
-import me.F_o_F_1092.WeatherVote.PluginManager.VersionManager.BukkitVersion;
 import me.F_o_F_1092.WeatherVote.PluginManager.Spigot.HelpPageListener;
 import me.F_o_F_1092.WeatherVote.PluginManager.Spigot.JSONMessageListener;
 import me.F_o_F_1092.WeatherVote.PluginManager.Spigot.UpdateListener;
@@ -98,7 +96,7 @@ public class CommandWeatherVote implements CommandExecutor {
 					replaceCommand = replaceCommand.replace("[COMMAND]", CommandListener.getCommand("/wv info").getColoredCommand());
 					cs.sendMessage(Options.msg.get("[WeatherVote]") + replaceCommand); 
 				} else {
-					cs.sendMessage("§9§m-----------§f [§9§lWeather§b§lVote§f] §9§m-----------");
+					cs.sendMessage("ï¿½9ï¿½m-----------ï¿½f [ï¿½9ï¿½lWeatherï¿½bï¿½lVoteï¿½f] ï¿½9ï¿½m-----------");
 					cs.sendMessage("");
 					
 					if (cs instanceof Player) {
@@ -106,9 +104,9 @@ public class CommandWeatherVote implements CommandExecutor {
 						
 						List<JSONMessage> jsonFoFMessages = new ArrayList<JSONMessage>();
 						
-						JSONMessage FoFText = new JSONMessage("§9By: ");
-						JSONMessage FoFLink = new JSONMessage("§fF_o_F_1092");
-						FoFLink.setHoverText("§9[§fOpen my Website§9]");
+						JSONMessage FoFText = new JSONMessage("ï¿½9By: ");
+						JSONMessage FoFLink = new JSONMessage("ï¿½fF_o_F_1092");
+						FoFLink.setHoverText("ï¿½9[ï¿½fOpen my Websiteï¿½9]");
 						FoFLink.setOpenURL("https://fof1092.de");
 						
 						jsonFoFMessages.add(FoFText);
@@ -120,9 +118,9 @@ public class CommandWeatherVote implements CommandExecutor {
 						
 						List<JSONMessage> jsonTwitterMessages = new ArrayList<JSONMessage>();
 						
-						JSONMessage twitterText = new JSONMessage("§9Twitter: ");
-						JSONMessage twitterLink = new JSONMessage("§f@F_o_F_1092");
-						twitterLink.setHoverText("§9[§fOpen Twitter§9]");
+						JSONMessage twitterText = new JSONMessage("ï¿½9Twitter: ");
+						JSONMessage twitterLink = new JSONMessage("ï¿½f@F_o_F_1092");
+						twitterLink.setHoverText("ï¿½9[ï¿½fOpen Twitterï¿½9]");
 						twitterLink.setOpenURL("https://twitter.com/F_o_F_1092");
 						
 						jsonTwitterMessages.add(twitterText);
@@ -131,13 +129,13 @@ public class CommandWeatherVote implements CommandExecutor {
 						JSONMessageListener.send(p, JSONMessageListener.putJSONMessagesTogether(jsonTwitterMessages));
 					
 						cs.sendMessage("");
-						cs.sendMessage("§9Version: §f" + UpdateListener.getUpdateStringVersion());
+						cs.sendMessage("ï¿½9Version: ï¿½f" + UpdateListener.getUpdateStringVersion());
 						
 						List<JSONMessage> jsonPluginPageMessages = new ArrayList<JSONMessage>();
 						
-						JSONMessage pluginWebsiteText = new JSONMessage("§9WeatherVote: ");
-						JSONMessage pluginWebsiteLink = new JSONMessage("§fhttps://fof1092.de/Plugins/WV");
-						pluginWebsiteLink.setHoverText("§9[§fOpen the Plugin Page§9]");
+						JSONMessage pluginWebsiteText = new JSONMessage("ï¿½9WeatherVote: ");
+						JSONMessage pluginWebsiteLink = new JSONMessage("ï¿½fhttps://fof1092.de/Plugins/WV");
+						pluginWebsiteLink.setHoverText("ï¿½9[ï¿½fOpen the Plugin Pageï¿½9]");
 						pluginWebsiteLink.setOpenURL("https://fof1092.de/Plugins/WV");
 						
 						jsonPluginPageMessages.add(pluginWebsiteText);
@@ -146,16 +144,16 @@ public class CommandWeatherVote implements CommandExecutor {
 						JSONMessageListener.send(p, JSONMessageListener.putJSONMessagesTogether(jsonPluginPageMessages));
 					
 					} else {
-						cs.sendMessage("§9By: §fF_o_F_1092");
+						cs.sendMessage("ï¿½9By: ï¿½fF_o_F_1092");
 						cs.sendMessage("");
-						cs.sendMessage("§9Twitter: §f@F_o_F_1092");
+						cs.sendMessage("ï¿½9Twitter: ï¿½f@F_o_F_1092");
 						cs.sendMessage("");
-						cs.sendMessage("§9Version: §f" + UpdateListener.getUpdateStringVersion());
-						cs.sendMessage("§9WeatherVote: §fhttps://fof1092.de/Plugins/WV");
+						cs.sendMessage("ï¿½9Version: ï¿½f" + UpdateListener.getUpdateStringVersion());
+						cs.sendMessage("ï¿½9WeatherVote: ï¿½fhttps://fof1092.de/Plugins/WV");
 					}
 					
 					cs.sendMessage("");
-					cs.sendMessage("§9§m-----------§f [§9§lWeather§b§lVote§f] §9§m-----------");
+					cs.sendMessage("ï¿½9ï¿½m-----------ï¿½f [ï¿½9ï¿½lWeatherï¿½bï¿½lVoteï¿½f] ï¿½9ï¿½m-----------");
 				}
 			} else if (args[0].equalsIgnoreCase("stats")) {
 				if (args.length != 1) {
@@ -219,58 +217,14 @@ public class CommandWeatherVote implements CommandExecutor {
 											p.sendMessage(Options.msg.get("[WeatherVote]") + text1);
 
 											WeatherVoteListener.getVault().withdrawPlayer(p, Options.price);
-											
-											
-											if (VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R1 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R2 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R3 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R3 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R4 ||
-													
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R1 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R2 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R3) {
-													
-												weatherVote = new  me.F_o_F_1092.WeatherVote.MC_V1_7__V1_8.WeatherVote(p.getWorld().getName(), Weather.SUN, p.getUniqueId());
-											} else if (VersionManager.getBukkitVersion() == BukkitVersion.v1_9_R1 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_9_R2 ||
-														
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_10_R1 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_11_R1 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_12_R1) {
-													
-												weatherVote = new  me.F_o_F_1092.WeatherVote.MC_V1_9__V1_12.WeatherVote(p.getWorld().getName(), Weather.SUN, p.getUniqueId());
-											} else {
-												weatherVote = new  me.F_o_F_1092.WeatherVote.WeatherVote(p.getWorld().getName(), Weather.SUN, p.getUniqueId());
-											}
+											weatherVote = new WeatherVote(p.getWorld().getName(), Weather.SUN, p.getUniqueId());
 										}
 									} else {
 										if (Options.price > 0.0) {
 											ServerLog.log("The plugin Vault was not found, but a Voting-Price was set in the Config.yml file.");
 										}
-										
-										if (VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R1 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R2 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R3 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R3 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R4 ||
-												
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R1 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R2 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R3) {
-												
-											weatherVote = new  me.F_o_F_1092.WeatherVote.MC_V1_7__V1_8.WeatherVote(p.getWorld().getName(), Weather.SUN, p.getUniqueId());
-										} else if (VersionManager.getBukkitVersion() == BukkitVersion.v1_9_R1 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_9_R2 ||
-													
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_10_R1 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_11_R1 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_12_R1) {
-												
-											weatherVote = new  me.F_o_F_1092.WeatherVote.MC_V1_9__V1_12.WeatherVote(p.getWorld().getName(), Weather.SUN, p.getUniqueId());
-										} else {
-											weatherVote = new  me.F_o_F_1092.WeatherVote.WeatherVote(p.getWorld().getName(), Weather.SUN, p.getUniqueId());
-										}
+
+										weatherVote = new WeatherVote(p.getWorld().getName(), Weather.SUN, p.getUniqueId());
 									}
 									
 									if (weatherVote != null) {
@@ -321,58 +275,15 @@ public class CommandWeatherVote implements CommandExecutor {
 											p.sendMessage(Options.msg.get("[WeatherVote]") + text1);
 
 											WeatherVoteListener.getVault().withdrawPlayer(p, Options.price);
-											
-											
-											if (VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R1 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R2 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R3 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R3 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R4 ||
-													
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R1 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R2 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R3) {
-													
-												weatherVote = new  me.F_o_F_1092.WeatherVote.MC_V1_7__V1_8.WeatherVote(p.getWorld().getName(), Weather.RAIN, p.getUniqueId());
-											} else if (VersionManager.getBukkitVersion() == BukkitVersion.v1_9_R1 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_9_R2 ||
-														
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_10_R1 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_11_R1 ||
-												VersionManager.getBukkitVersion() == BukkitVersion.v1_12_R1) {
-													
-												weatherVote = new  me.F_o_F_1092.WeatherVote.MC_V1_9__V1_12.WeatherVote(p.getWorld().getName(), Weather.RAIN, p.getUniqueId());
-											} else {
-												weatherVote = new  me.F_o_F_1092.WeatherVote.WeatherVote(p.getWorld().getName(), Weather.RAIN, p.getUniqueId());
-											}
+
+											weatherVote = new WeatherVote(p.getWorld().getName(), Weather.RAIN, p.getUniqueId());
 										}
 									} else {
 										if (Options.price > 0.0) {
 											ServerLog.log("The plugin Vault was not found, but a Voting-Price was set in the Config.yml file.");
 										}
-										
-										if (VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R1 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R2 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R3 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R3 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R4 ||
-												
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R1 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R2 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R3) {
-												
-											weatherVote = new  me.F_o_F_1092.WeatherVote.MC_V1_7__V1_8.WeatherVote(p.getWorld().getName(), Weather.RAIN, p.getUniqueId());
-										} else if (VersionManager.getBukkitVersion() == BukkitVersion.v1_9_R1 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_9_R2 ||
-													
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_10_R1 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_11_R1 ||
-											VersionManager.getBukkitVersion() == BukkitVersion.v1_12_R1) {
-												
-											weatherVote = new  me.F_o_F_1092.WeatherVote.MC_V1_9__V1_12.WeatherVote(p.getWorld().getName(), Weather.RAIN, p.getUniqueId());
-										} else {
-											weatherVote = new  me.F_o_F_1092.WeatherVote.WeatherVote(p.getWorld().getName(), Weather.RAIN, p.getUniqueId());
-										}
+
+										weatherVote = new me.F_o_F_1092.WeatherVote.WeatherVote(p.getWorld().getName(), Weather.RAIN, p.getUniqueId());
 									}
 									
 									if (weatherVote != null) {

@@ -6,5 +6,5 @@ author: F_o_F_1092
 commands:
   WeatherVote:
     description: none
-    usage: /WeatherVote
+    usage: /weathervote
     aliases: [wv]

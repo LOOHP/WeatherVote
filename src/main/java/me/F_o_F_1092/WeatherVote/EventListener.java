@@ -78,21 +78,21 @@ public class EventListener implements Listener {
 				e.setCancelled(true);
 				if (!WeatherVoteListener.isVoting(p.getWorld().getName())) {
 					if (e.getSlot() >= 1 && e.getSlot() <= 3) {
-						p.chat("/WeatherVote sun");
+						p.chat("/weathervote sun");
 						
 						p.closeInventory();
 					} else if (e.getSlot() >= 5 && e.getSlot() <= 7) {
-						p.chat("/WeatherVote rain");
+						p.chat("/weathervote rain");
 						
 						p.closeInventory();
 					}
 				} else {
 					if (e.getSlot() >= 1 && e.getSlot() <= 3) {
-						p.chat("/WeatherVote yes");
+						p.chat("/weathervote yes");
 						
 						p.closeInventory();
 					} else if (e.getSlot() >= 5 && e.getSlot() <= 7) {
-						p.chat("/WeatherVote no");
+						p.chat("/weathervote no");
 						
 						p.closeInventory();
 					}

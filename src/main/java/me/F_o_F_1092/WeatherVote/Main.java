@@ -17,9 +17,6 @@ import me.F_o_F_1092.WeatherVote.PluginManager.Command;
 import me.F_o_F_1092.WeatherVote.PluginManager.CommandListener;
 import me.F_o_F_1092.WeatherVote.PluginManager.HelpPageListener;
 import me.F_o_F_1092.WeatherVote.PluginManager.ServerLog;
-import me.F_o_F_1092.WeatherVote.PluginManager.VersionManager;
-import me.F_o_F_1092.WeatherVote.PluginManager.VersionManager.BukkitVersion;
-import me.F_o_F_1092.WeatherVote.PluginManager.VersionManager.ServerType;
 import me.F_o_F_1092.WeatherVote.PluginManager.Spigot.UpdateListener;
 import me.F_o_F_1092.WeatherVote.VotingGUI.VotingGUIListener;
 
@@ -37,7 +34,7 @@ public class Main extends JavaPlugin {
 
 		plugin = this;
 		
-		ServerLog.setPluginTag("§f[§9Weather§bVote§f]§9");
+		ServerLog.setPluginTag("Â§f[Â§9WeatherÂ§bVoteÂ§f]Â§9");
 		UpdateListener.initializeUpdateListener(1.42, "1.4.2", 7642);
 		UpdateListener.checkForUpdate();
 		
@@ -60,8 +57,6 @@ public class Main extends JavaPlugin {
 	}
 
 	public static void setup() {
-		VersionManager.setVersionManager(Bukkit.getServer().getClass().getPackage().getName().replace(".",  ",").split(",")[3], ServerType.BUKKIT, false);
-		
 		if (Bukkit.getPluginManager().getPlugin("Vault") != null) {
 			Options.vault = true;
 		}
@@ -143,13 +138,6 @@ public class Main extends JavaPlugin {
 
 		ServerLog.setUseColoredColores(ymlFileConfig.getBoolean("ColoredConsoleText"));
 		
-		if (!ymlFileConfig.getBoolean("GameVersion.SetOwn")) {
-			ServerLog.log("ServerType:§b " + VersionManager.getSetverTypeString() + "§9, Version:§b " + VersionManager.getBukkitVersion());
-		} else {
-			VersionManager.setVersionManager(ymlFileConfig.getString("GameVersion.Version"), ServerType.BUKKIT, true);
-			ServerLog.log("ServerType:§b " + VersionManager.getSetverTypeString() + "§9, Version:§b " + VersionManager.getBukkitVersion() + "§9 | §b(Self configurated)");
-		}
-		
 		Options.votingTime = ymlFileConfig.getLong("VotingTime");
 		Options.remindingTime = ymlFileConfig.getLong("RemindingTime");
 		Options.timeoutPeriod = ymlFileConfig.getLong("TimeoutPeriod");
@@ -157,23 +145,11 @@ public class Main extends JavaPlugin {
 		Options.useVoteGUI = ymlFileConfig.getBoolean("UseVoteGUI");
 		
 		if (ymlFileConfig.getBoolean("UseBossBar")) {
-			if (VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R1 || VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R2 || VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R4 || VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R3 || VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R1 || VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R2 || VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R3) {
-				if (Bukkit.getPluginManager().getPlugin("BossBarAPI") != null) {
-					Options.useBossBar = true;
-				}
-			} else {
-				Options.useBossBar = true;
-			}
+			Options.useBossBar = true;
 		}
 		
 		if (ymlFileConfig.getBoolean("UseTitle")) {
-			if (VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R1 || VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R2 || VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R4 || VersionManager.getBukkitVersion() == BukkitVersion.v1_7_R3 || VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R1 || VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R2 || VersionManager.getBukkitVersion() == BukkitVersion.v1_8_R3) {
-				if (Bukkit.getPluginManager().getPlugin("TitleAPI") != null) {
-					Options.useTitle = true;
-				}
-			} else {
-				Options.useTitle = true;
-			}
+			Options.useTitle = true;
 		}
 		
 		Options.checkForHiddenPlayers = ymlFileConfig.getBoolean("CheckForHiddenPlayers");
